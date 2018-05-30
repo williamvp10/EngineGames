@@ -128,7 +128,7 @@ function CalificacionComentarios(id) {
     };
     $.ajax({
         data: parametros,
-        url: "ServletCalificacionComentarios",
+        url: "ServletCalificacionComentario",
         type: "GET"
 
     }).done(function (response) {
@@ -150,7 +150,7 @@ function newLike(id){
     };
     $.ajax({
         data: parametros,
-        url: "ServletCalificacionComentarios",
+        url: "ServletCalificacionComentario",
         type: "POST"
 
     }).done(function (response) {
@@ -169,7 +169,7 @@ function newNoLike(id){
     };
     $.ajax({
         data: parametros,
-        url: "ServletCalificacionComentarios",
+        url: "ServletCalificacionComentario",
         type: "POST"
 
     }).done(function (response) {
