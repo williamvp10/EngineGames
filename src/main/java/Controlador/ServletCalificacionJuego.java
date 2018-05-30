@@ -44,7 +44,7 @@ public class ServletCalificacionJuego extends HttpServlet {
         this.juegos = new Juegos();
         //retornar por juego
         int id = Integer.parseInt(request.getParameter("IdJuego").trim());
-        ArrayList<Double> c = new ArrayList<Double>();
+        ArrayList c = new ArrayList();
         c.add(this.cjuegos.Likes(id));
 
         String json = new Gson().toJson(c);

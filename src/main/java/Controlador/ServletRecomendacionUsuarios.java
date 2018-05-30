@@ -50,20 +50,20 @@ public class ServletRecomendacionUsuarios extends HttpServlet {
         //retornar info de un juego en especifico 
         String id = (String) request.getParameter("IdJuego");
         Juego u = (Juego) this.juegos.findbyId(id).get(0);
-        System.out.println("nom " + u.getNombre());
         ArrayList<JuegoFav> juegosfav = (ArrayList<JuegoFav>) this.juegofav.findAll();
         ArrayList<Usuario> j = new ArrayList<Usuario>();
         for (int i = 0; i < juegosfav.size(); i++) {
             if (u.getId() != null && juegosfav.get(i).getIdJuego().trim().equals(u.getId().trim())) {
                 if (!use.getNickname().equals(juegosfav.get(i).getIdUsuario())) {
-
                     Usuario us = this.usuarios.FindById(juegosfav.get(i).getIdUsuario());
                     us.setPassword("****");
                     j.add(us);
                 }
             }
         }
-
+        if(j.size()==0){
+            j=null;
+        }
         //j.add(this.usuarios.FindById(id));
         String json = new Gson().toJson(j);
         response.setContentType("application/json");
