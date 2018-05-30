@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author willy
  */
-@WebServlet(name = "ServletComentarios", urlPatterns = {"/ServletComentarios"})
+
 public class ServletComentarios extends HttpServlet {
 
     private Comentarios comentarios;

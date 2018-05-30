@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author william
  */
-@WebServlet(name = "ServletCalificacionComentarios", urlPatterns = {"/ServletCalificacionComentarios"})
+@WebServlet(name = "ServletCalificacionComentario", urlPatterns = {"/ServletCalificacionComentario"})
 public class ServletCalificacionComentario extends HttpServlet {
 
     private CalificacionComentarios ccomentarios;
@@ -39,7 +39,6 @@ public class ServletCalificacionComentario extends HttpServlet {
         ArrayList<Integer> c = new ArrayList<Integer>();
         c.add(this.ccomentarios.Likes(id));
         c.add(this.ccomentarios.NoLikes(id));
-        System.out.println(" ............ " + c.get(0) + " -- " + c.get(1));
         String json = new Gson().toJson(c);
         response.setContentType("application/json");
         response.getWriter().write(json);

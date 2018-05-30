@@ -67,7 +67,6 @@ public class CalificacionJuegos implements IBaseDatos<CalificacionJuego> {
             j+=est.get(i).getCalificacion();
             
         }
-        
         if(est.size() != 0){
             promedio=(double)j/(est.size());
         }
