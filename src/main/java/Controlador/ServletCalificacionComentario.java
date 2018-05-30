@@ -38,9 +38,11 @@ public class ServletCalificacionComentario extends HttpServlet {
         //retornar por juego
         String id = request.getParameter("IdComentario").trim();
         ArrayList c = new ArrayList();
-        c.add(this.ccomentarios.Likes(id));
-        c.add(this.ccomentarios.NoLikes(id));
-        
+        int likes=this.ccomentarios.Likes(id);
+        int nolikes=this.ccomentarios.NoLikes(id);
+        c.add(likes);
+        c.add(nolikes);
+
         String json = new Gson().toJson(c);
         response.setContentType("application/json");
         response.getWriter().write(json);
