@@ -44,7 +44,7 @@ function CalificacionJ(id) {
 
     }).done(function (response) {
         var juegos = response;
-      
+       console.log(response);
         document.getElementById('promedio').innerHTML ="Calificación: " +juegos[0];
 
     });
@@ -66,9 +66,8 @@ function CalificacionK() {
         type: "POST"
 
     }).done(function (response) {
+         console.log(response);
         CalificacionJ(id);
-      
-       
 
     });
 
@@ -132,6 +131,7 @@ function CalificacionComentarios(id) {
         type: "GET"
 
     }).done(function (response) {
+         console.log(response);
         var com = response;
         $("#c"+id+"1").empty();
         $("#c"+id+"2").empty();
