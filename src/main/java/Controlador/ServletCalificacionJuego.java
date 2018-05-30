@@ -39,6 +39,12 @@ public class ServletCalificacionJuego extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(cjuegos==null){
+           this.cjuegos = new CalificacionJuegos();
+        }
+         if(juegos==null){
+           this.juegos = new Juegos();
+        }
         //retornar por juego
         int id = Integer.parseInt(request.getParameter("IdJuego").trim());
         ArrayList<Double> c = new ArrayList<Double>();
@@ -53,6 +59,12 @@ public class ServletCalificacionJuego extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(cjuegos==null){
+           this.cjuegos = new CalificacionJuegos();
+        }
+         if(juegos==null){
+           this.juegos = new Juegos();
+        }
         String r = "";
         //añadir Calificacion de un juego
         String nickname = request.getParameter("Nickname").trim();

@@ -34,6 +34,9 @@ public class ServletUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(usuarios==null){
+            usuarios= new Usuarios();
+        }
         //retornar info de un juego en especifico 
         String id = request.getParameter("IdUsuario").trim();
         ArrayList<Usuario> j = new ArrayList<Usuario>();
@@ -69,6 +72,9 @@ public class ServletUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(usuarios==null){
+            usuarios= new Usuarios();
+        }
         String r="";
         String id = request.getParameter("IdUsuario").trim();
         String nombre = request.getParameter("Nombre").trim();
