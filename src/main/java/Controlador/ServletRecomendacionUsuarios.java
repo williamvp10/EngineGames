@@ -41,15 +41,9 @@ public class ServletRecomendacionUsuarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (usuarios == null) {
-            usuarios = new Usuarios();
-        }
-        if (juegofav == null) {
-            juegofav = new Juegofavdb();
-        }
-        if (juegos == null) {
-            juegos = new Juegos();
-        }
+        usuarios = new Usuarios();
+        juegofav = new Juegofavdb();
+        juegos = new Juegos();
         HttpSession session = request.getSession();
         String ids = (String) session.getAttribute("sessionId");
         Usuario use = this.usuarios.FindById(ids);
@@ -79,14 +73,8 @@ public class ServletRecomendacionUsuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (usuarios == null) {
-            usuarios = new Usuarios();
-        }
-        if (juegofav == null) {
-            juegofav = new Juegofavdb();
-        }
-        if (juegos == null) {
-            juegos = new Juegos();
-        }
+        usuarios = new Usuarios();
+        juegofav = new Juegofavdb();
+        juegos = new Juegos();
     }
 }

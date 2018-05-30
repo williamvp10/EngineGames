@@ -31,25 +31,22 @@ public class ServletCalificacionJuego extends HttpServlet {
 
     private CalificacionJuegos cjuegos;
     private Juegos juegos;
+
     public ServletCalificacionJuego() {
         this.cjuegos = new CalificacionJuegos();
-        juegos=new Juegos();
+        this.juegos = new Juegos();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(cjuegos==null){
-           this.cjuegos = new CalificacionJuegos();
-        }
-         if(juegos==null){
-           this.juegos = new Juegos();
-        }
+        this.cjuegos = new CalificacionJuegos();
+        this.juegos = new Juegos();
         //retornar por juego
         int id = Integer.parseInt(request.getParameter("IdJuego").trim());
         ArrayList<Double> c = new ArrayList<Double>();
         c.add(this.cjuegos.Likes(id));
-        
+
         String json = new Gson().toJson(c);
         response.setContentType("application/json");
         response.getWriter().write(json);
@@ -59,35 +56,31 @@ public class ServletCalificacionJuego extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(cjuegos==null){
-           this.cjuegos = new CalificacionJuegos();
-        }
-         if(juegos==null){
-           this.juegos = new Juegos();
-        }
+        this.cjuegos = new CalificacionJuegos();
+        this.juegos = new Juegos();
         String r = "";
         //añadir Calificacion de un juego
         String nickname = request.getParameter("Nickname").trim();
         int id = Integer.parseInt(request.getParameter("IdJuego").trim());
         int cal = Integer.parseInt(request.getParameter("Calificacion").trim());
         CalificacionJuego c = new CalificacionJuego(nickname, id, cal);
-        
-        if (this.cjuegos.find(nickname, id).size()<=0) {
+
+        if (this.cjuegos.find(nickname, id).size() <= 0) {
             if (this.cjuegos.insert(c)) {
                 r = "inserto correctamente";
             } else {
                 r = "null";
             }
         } else {
-            if(this.cjuegos.find(nickname, id).get(0).getCalificacion()== cal){
+            if (this.cjuegos.find(nickname, id).get(0).getCalificacion() == cal) {
                 this.cjuegos.delete(c);
-            }else {
+            } else {
                 this.cjuegos.update(c);
             }
         }
-        Juego j = this.juegos.findbyId(""+id).get(0);
-        
-        j.setCalificacion(""+this.cjuegos.Likes(id));
+        Juego j = this.juegos.findbyId("" + id).get(0);
+
+        j.setCalificacion("" + this.cjuegos.Likes(id));
         this.juegos.update(j);
         System.out.println("--------------------" + r);
         response.setContentType("html/text");

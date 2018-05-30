@@ -34,9 +34,7 @@ public class ServletCalificacionComentario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(this.ccomentarios==null){
-           this.ccomentarios = new CalificacionComentarios();
-        }
+           this.ccomentarios = new CalificacionComentarios();      
         //retornar por juego
         int id = Integer.parseInt(request.getParameter("IdComentario").trim());
         ArrayList<Integer> c = new ArrayList<Integer>();
@@ -51,9 +49,7 @@ public class ServletCalificacionComentario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(ccomentarios==null){
-           this.ccomentarios = new CalificacionComentarios();
-        }
+           this.ccomentarios = new CalificacionComentarios();    
         String r = "";
         //añadir Calificacion de un Comentario
         String nickname = request.getParameter("NickName").trim();
@@ -73,7 +69,6 @@ public class ServletCalificacionComentario extends HttpServlet {
                 this.ccomentarios.update(c);
             }
         }
-        System.out.println("--------------------" + r);
         response.setContentType("html/text");
         response.getWriter().write(r);
     }
