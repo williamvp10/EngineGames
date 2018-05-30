@@ -123,7 +123,47 @@
         <servlet-name>ServletRecomendacionUsuarios</servlet-name>
         <url-pattern>/ServletRecomendacionUsuarios</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletComentarios</servlet-name>
+        <servlet-class>Controlador.ServletComentarios</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletComentarios</servlet-name>
+        <url-pattern>/ServletComentarios</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletAmigos</servlet-name>
+        <servlet-class>Controlador.ServletAmigos</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletAmigos</servlet-name>
+        <url-pattern>/ServletAmigos</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletCalificacionJuego</servlet-name>
+        <servlet-class>Controlador.ServletCalificacionJuego</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletCalificacionJuego</servlet-name>
+        <url-pattern>/ServletCalificacionJuego</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletCalificacionComentario</servlet-name>
+        <servlet-class>Controlador.ServletCalificacionComentario</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletCalificacionComentario</servlet-name>
+        <url-pattern>/ServletCalificacionComentario</url-pattern>
+    </servlet-mapping>
+    
+    
+    
     <session-config>
+        
         <session-timeout>
             30
         </session-timeout>

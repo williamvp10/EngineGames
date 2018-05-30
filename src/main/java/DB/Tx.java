@@ -111,7 +111,7 @@ public class Tx<T> {
                         } else {
                             query += " where ";
                         }
-                        query += f[i].getName() + " = " + name + "";
+                        query += f[i].getName() + " = '" + name + "'";
                         j++;
                     }
                 }
