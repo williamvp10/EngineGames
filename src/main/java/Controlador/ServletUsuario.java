@@ -37,7 +37,7 @@ public class ServletUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //retornar info de un juego en especifico 
-        String id = request.getParameter("IdUsuario");
+        String id = request.getParameter("IdUsuario").trim();
         ArrayList<Usuario> j = new ArrayList<Usuario>();
         j.add(this.usuarios.FindById(id));
         for (int i = 0; i < j.size(); i++) {
@@ -72,16 +72,16 @@ public class ServletUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String r="";
-        String id = request.getParameter("IdUsuario");
-        String nombre = request.getParameter("Nombre");
+        String id = request.getParameter("IdUsuario").trim();
+        String nombre = request.getParameter("Nombre").trim();
         Date FechaNacimiento = Date.valueOf(request.getParameter("FechaNacimiento"));
-        String ExperienciaVideojuegos = request.getParameter("ExperienciaVideojuegos");
-        String HorasPromedioJuego = request.getParameter("HorasPromedioJuego");
-        String PlataformasVideojuegos = request.getParameter("PlataformasVideojuegos");
-        String Idiomas = request.getParameter("Idiomas");
-        String DiasJuego = request.getParameter("DiasJuego");
-        String HorarioJuego = request.getParameter("HorarioJuego");
-        String GenerosJuego = request.getParameter("GenerosJuego");
+        String ExperienciaVideojuegos = request.getParameter("ExperienciaVideojuegos").trim();
+        String HorasPromedioJuego = request.getParameter("HorasPromedioJuego").trim();
+        String PlataformasVideojuegos = request.getParameter("PlataformasVideojuegos").trim();
+        String Idiomas = request.getParameter("Idiomas").trim();
+        String DiasJuego = request.getParameter("DiasJuego").trim();
+        String HorarioJuego = request.getParameter("HorarioJuego").trim();
+        String GenerosJuego = request.getParameter("GenerosJuego").trim();
         Usuario u = this.usuarios.FindById(id);
         u.setNombre(nombre);
         u.setFechaNacimiento(FechaNacimiento);
