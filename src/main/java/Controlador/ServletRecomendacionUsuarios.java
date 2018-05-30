@@ -41,7 +41,15 @@ public class ServletRecomendacionUsuarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        if (usuarios == null) {
+            usuarios = new Usuarios();
+        }
+        if (juegofav == null) {
+            juegofav = new Juegofavdb();
+        }
+        if (juegos == null) {
+            juegos = new Juegos();
+        }
         HttpSession session = request.getSession();
         String ids = (String) session.getAttribute("sessionId");
         Usuario use = this.usuarios.FindById(ids);
@@ -53,12 +61,12 @@ public class ServletRecomendacionUsuarios extends HttpServlet {
         ArrayList<Usuario> j = new ArrayList<Usuario>();
         for (int i = 0; i < juegosfav.size(); i++) {
             if (u.getId() != null && juegosfav.get(i).getIdJuego().trim().equals(u.getId().trim())) {
-                if(!use.getNickname().equals(juegosfav.get(i).getIdUsuario())){
-                    
-                Usuario us = this.usuarios.FindById(juegosfav.get(i).getIdUsuario());
-                us.setPassword("****");
-                j.add(us);
-            }
+                if (!use.getNickname().equals(juegosfav.get(i).getIdUsuario())) {
+
+                    Usuario us = this.usuarios.FindById(juegosfav.get(i).getIdUsuario());
+                    us.setPassword("****");
+                    j.add(us);
+                }
             }
         }
 
@@ -71,6 +79,14 @@ public class ServletRecomendacionUsuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        if (usuarios == null) {
+            usuarios = new Usuarios();
+        }
+        if (juegofav == null) {
+            juegofav = new Juegofavdb();
+        }
+        if (juegos == null) {
+            juegos = new Juegos();
+        }
     }
 }
