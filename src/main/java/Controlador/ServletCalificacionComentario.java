@@ -36,7 +36,7 @@ public class ServletCalificacionComentario extends HttpServlet {
             throws ServletException, IOException {
            this.ccomentarios = new CalificacionComentarios();      
         //retornar por juego
-        int id = Integer.parseInt(request.getParameter("IdComentario").trim());
+        String id = request.getParameter("IdComentario").trim();
         ArrayList c = new ArrayList();
         c.add(this.ccomentarios.Likes(id));
         c.add(this.ccomentarios.NoLikes(id));
@@ -54,7 +54,7 @@ public class ServletCalificacionComentario extends HttpServlet {
         String r = "";
         //añadir Calificacion de un Comentario
         String nickname = request.getParameter("NickName").trim();
-        int id = Integer.parseInt(request.getParameter("IdComentario").trim());
+        String id = request.getParameter("IdComentario").trim();
         int cal = Integer.parseInt(request.getParameter("Calificacion").trim());
         CalificacionComentario c = new CalificacionComentario(nickname, id, cal);
         if (this.ccomentarios.find(nickname, id).size()<=0) {

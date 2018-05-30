@@ -43,7 +43,7 @@ public class ServletCalificacionJuego extends HttpServlet {
         this.cjuegos = new CalificacionJuegos();
         this.juegos = new Juegos();
         //retornar por juego
-        int id = Integer.parseInt(request.getParameter("IdJuego").trim());
+        String id = request.getParameter("IdJuego").trim();
         ArrayList c = new ArrayList();
         c.add(this.cjuegos.Likes(id));
 
@@ -61,7 +61,7 @@ public class ServletCalificacionJuego extends HttpServlet {
         String r = "";
         //añadir Calificacion de un juego
         String nickname = request.getParameter("Nickname").trim();
-        int id = Integer.parseInt(request.getParameter("IdJuego").trim());
+        String id =request.getParameter("IdJuego").trim();
         int cal = Integer.parseInt(request.getParameter("Calificacion").trim());
         CalificacionJuego c = new CalificacionJuego(nickname, id, cal);
 

@@ -11,13 +11,13 @@ package Modelo;
  */
 public class CalificacionComentario {
     private String Nickname;
-    private int IdComentario;
+    private String IdComentario;
     private int Calificacion;
 
     public CalificacionComentario() {
     }
 
-    public CalificacionComentario(String Nickname, int IdComentario, int Calificacion) {
+    public CalificacionComentario(String Nickname, String IdComentario, int Calificacion) {
         this.Nickname = Nickname;
         this.IdComentario = IdComentario;
         this.Calificacion = Calificacion;
@@ -31,11 +31,11 @@ public class CalificacionComentario {
         this.Nickname = Nickname;
     }
 
-    public int getIdComentario() {
+    public String getIdComentario() {
         return IdComentario;
     }
 
-    public void setIdComentario(int IdComentario) {
+    public void setIdComentario(String IdComentario) {
         this.IdComentario = IdComentario;
     }
 
@@ -46,6 +46,6 @@ public class CalificacionComentario {
     public void setCalificacion(int Calificacion) {
         this.Calificacion = Calificacion;
     }
-    
+
     
 }

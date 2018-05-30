@@ -12,13 +12,13 @@ package Modelo;
 public class CalificacionJuego {
 
     private String Nickname;
-    private int IdJuego;
+    private String IdJuego;
     private int Calificacion;
 
     public CalificacionJuego() {
     }
 
-    public CalificacionJuego(String Nickname, int IdJuego, int Calificacion) {
+    public CalificacionJuego(String Nickname, String IdJuego, int Calificacion) {
         this.Nickname = Nickname;
         this.IdJuego = IdJuego;
         this.Calificacion = Calificacion;
@@ -32,13 +32,12 @@ public class CalificacionJuego {
         this.Nickname = Nickname;
     }
 
-    public int getIdJuego() {
+    public String getIdJuego() {
         return IdJuego;
     }
 
-    public void setIdJuego(int IdJuego) {
+    public void setIdJuego(String IdJuego) {
         this.IdJuego = IdJuego;
-
     }
 
     public int getCalificacion() {

@@ -23,7 +23,7 @@ public class CalificacionComentarios implements IBaseDatos<CalificacionComentari
 
     @Override
     public List<CalificacionComentario> findAll() {
-        CalificacionComentario c= new CalificacionComentario(null,-1,-1);
+        CalificacionComentario c= new CalificacionComentario(null,null,-1);
         ArrayList<CalificacionComentario> est = tx.Select(c);
         return est;
     }
@@ -50,14 +50,14 @@ public class CalificacionComentarios implements IBaseDatos<CalificacionComentari
         return r;
     }
     
-    public List<CalificacionComentario> find(String nick, int idcomentario) {
+    public List<CalificacionComentario> find(String nick, String idcomentario) {
         CalificacionComentario c= new CalificacionComentario(nick,idcomentario,-1);
         ArrayList<CalificacionComentario> est = tx.Select(c);
         return est;
     }
 
     
-    public int Likes(int id) {
+    public int Likes(String id) {
         CalificacionComentario c= new CalificacionComentario(null,id,-1);
         ArrayList<CalificacionComentario> est = tx.Select(c);
         int j=0;
@@ -69,7 +69,7 @@ public class CalificacionComentarios implements IBaseDatos<CalificacionComentari
         return j;
     }
     
-    public int NoLikes(int id) {
+    public int NoLikes(String id) {
         CalificacionComentario c= new CalificacionComentario(null,id,-1);
         ArrayList<CalificacionComentario> est = tx.Select(c);
         int j=0;

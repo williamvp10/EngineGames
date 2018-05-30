@@ -24,7 +24,7 @@ public class CalificacionJuegos implements IBaseDatos<CalificacionJuego> {
 
     @Override
     public List<CalificacionJuego> findAll() {
-        CalificacionJuego c= new CalificacionJuego(null,-1,-1);
+        CalificacionJuego c= new CalificacionJuego(null,null,-1);
         ArrayList<CalificacionJuego> est = tx.Select(c);
         return est;
     }
@@ -51,14 +51,14 @@ public class CalificacionJuegos implements IBaseDatos<CalificacionJuego> {
         return r;
     }
     
-    public List<CalificacionJuego> find(String nick, int idcomentario) {
+    public List<CalificacionJuego> find(String nick, String idcomentario) {
         CalificacionJuego c= new CalificacionJuego(nick,idcomentario,-1);
         ArrayList<CalificacionJuego> est = tx.Select(c);
         return est;
     }
 
     
-    public double Likes(int id) {
+    public double Likes(String id) {
         CalificacionJuego c= new CalificacionJuego(null,id,-1);
         ArrayList<CalificacionJuego> est = tx.Select(c);
         int j=0;
