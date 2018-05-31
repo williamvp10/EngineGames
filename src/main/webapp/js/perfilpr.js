@@ -18,7 +18,6 @@ function infoPerfilpr() {
 
     }).done(function (response) {
         var usuarios = response;
-        console.log(response);
         document.getElementById('Nicknamepr').value = usuarios[0].Nickname;
         document.getElementById('Nombrepr').value = usuarios[0].Nombre;
         document.getElementById('Correopr').value = usuarios[0].Email;
@@ -79,7 +78,7 @@ function GuardarCambiosPerfil() {
         type: "POST"
 
     }).done(function (response) {
-        alert(response);
+        bluee(response);
        actualizarPerfil();
     });
 }

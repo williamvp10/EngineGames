@@ -14,7 +14,7 @@ function iniciarsesion(correo, clave) {
         if (ad === 0) { 
             document.location.href = "principal.jsp";
         } else {
-           
+           redd(response[0]);
         }
     });
 }
@@ -37,7 +37,7 @@ function CrearCuenta(nombre, nick, clave, correo) {
         if (ad === 0) {
             document.location.href = "principal.jsp";
         } else {
-            ohSnap(response, {color: 'red'});
+            redd(response);
         }
     });
 }

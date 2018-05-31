@@ -44,7 +44,7 @@ function CalificacionJ(id) {
 
     }).done(function (response) {
         var juegos = response;
-       console.log(response);
+      
         document.getElementById('promedio').innerHTML ="Calificación: " +juegos[0];
 
     });
@@ -66,9 +66,8 @@ function CalificacionK() {
         type: "POST"
 
     }).done(function (response) {
-         console.log(response);
         CalificacionJ(id);
-
+      
     });
 
 }
@@ -131,7 +130,6 @@ function CalificacionComentarios(id) {
         type: "GET"
 
     }).done(function (response) {
-         console.log(response);
         var com = response;
         $("#c"+id+"1").empty();
         $("#c"+id+"2").empty();
@@ -194,7 +192,7 @@ function addComentarios(idj, comentario) {
         var str1 = "null";
         var ad = str1.localeCompare(response);
         if (ad === 0) {
-            ohSnap("error al subir ", {color: 'red'});
+            redd("error al subir ");
         } else {
             getComentarios(idj);
             document.getElementById('textComentario').value = '';
@@ -240,9 +238,10 @@ function AgregarJuego(id) {
         var str1 = "null";
         var ad = str1.localeCompare(response);
         if (ad === 0) {
-            ohSnap(" error ", {color: 'red'});
+            redd(" error ");
         } else {
             infou();
+            bluee("agregado correctamente");
         }
     });
 }

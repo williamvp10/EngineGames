@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" media="screen">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
         <link href="assets/css/now-ui-dashboard.css" rel="stylesheet" />
         <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -49,7 +50,9 @@
 
         <%  if (session.getAttribute("sessionNombre") == null) {
                 response.sendRedirect("index.jsp");
-            }%>            
+            }%>         
+
+        
         <div class="sidebar" data-color="orange">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
@@ -105,7 +108,7 @@
 
                 <div class="navbar-translate">
                     <a class="navbar-brand" href="#" rel="tooltip" title="Home" data-placement="bottom" onclick="inicio()">
-                        XGames
+                       Engine Games
                     </a>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" data-nav-image="./assets/img/blurred-image-1.jpg">
@@ -711,7 +714,7 @@
         </div>
 
     </div> -->
-
+    <div id="ohsnap"></div>
 
     </body>
     <!--   Core JS Files   -->
@@ -740,7 +743,9 @@
     <script src="js/perfilpu.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js'></script>
     <script src="js/SlideGames.js"></script>
-
+    <script src="js/ohsnap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+    
     <script type="text/javascript">
                         $(document).ready(function () {
                             // the body of this function is in js/now-ui-kit.js

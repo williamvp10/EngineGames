@@ -26,8 +26,10 @@
         <link href="css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="css/demo.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" media="screen">
         <!-- Canonical SEO -->
         <link rel="canonical" href="https://www.creative-tim.com/product/now-ui-kit" />
+        <script type='text/javascript' src="js/ohsnap.js"></script>
         <!--  Social tags      -->
         <meta name="keywords" content="bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, now ui, now ui kit, creative tim, html kit, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap ui kit, responsive ui kit">
         <meta name="description" content="Start your development with a beautiful Bootstrap 4 UI kit. It is yours Free.">
@@ -58,15 +60,15 @@
     <body class="index-page sidebar-collapse">
 
         <%  if (session.getAttribute("sessionNombre") != null) {
-                    response.sendRedirect("principal.jsp");
-                }%>
+                response.sendRedirect("principal.jsp");
+            }%>
         <!-- Navbar -->
-
+        <div id="ohsnap"></div>
         <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
             <div class="container">
                 <div class="navbar-translate">
                     <a class="navbar-brand" href="http://demos.creative-tim.com/now-ui-kit/index.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-                        X games
+                        Engine Games
                     </a>
                     <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar bar1"></span>
@@ -96,13 +98,7 @@
                                 <p class="d-lg-none d-xl-none">Facebook</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="" target="_blank">
-                                <i class="fa fa-instagram"></i>
-                                <p class="d-lg-none d-xl-none">Instagram</p>
-                            </a>
-                        </li>
-
+                      
                     </ul>
                 </div>
             </div>
@@ -175,11 +171,11 @@
                             </div>
                         </div>
                     </div>
-                        <h6 class="category category-absolute">Designed by
-                            USergio Coded by
-                            <a href="https://www.creative-tim.com" target="_blank">
-                                <img src="./img/creative-tim-white-slim2.png" class="creative-tim-logo" />
-                            </a>.</h6>
+                    <h6 class="category category-absolute">Designed by
+                        USergio Coded by
+                        <a href="https://www.creative-tim.com" target="_blank">
+                            <img src="./img/creative-tim-white-slim2.png" class="creative-tim-logo" />
+                        </a>.</h6>
                 </div>
             </div>
             <!-- Sart Modal -->
@@ -266,12 +262,12 @@
                                 </div>
                             </div>
                             <div class="footer text-center">
-                                <a class="btn btn-primary btn-round btn-lg btn-block" onclick=" CrearCuenta($('#name1').val(), $('#nick1').val(), $('#password1').val(),$('#correo1').val())">Empecemos</a>
+                                <a class="btn btn-primary btn-round btn-lg btn-block" onclick=" CrearCuenta($('#name1').val(), $('#nick1').val(), $('#password1').val(), $('#correo1').val())">Empecemos</a>
                             </div>  
                         </div>
                     </div>
                 </div>
-           </div>
+            </div>
             <!-- Mini Modal -->
             <div class="modal fade modal-mini modal-primary" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -292,8 +288,8 @@
                 </div>
             </div>
         </div>
-        
-    </body>
+
+    </body> 
 
     <!--   Core JS Files   -->
     <script src="js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
@@ -309,22 +305,24 @@
     <script src="js/plugins/jquery.sharrre.js" type="text/javascript"></script>
     <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
     <script src="js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
-    
+
+    <script src="js/ohsnap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
     <script type='text/javascript' src="js/IniciarSesion.js"></script>
-    <script type='text/javascript' src="js/ohsnap.js"></script>
+
     <script type="text/javascript">
-                                        $(document).ready(function () {
-                                            // the body of this function is in js/now-ui-kit.js
-                                            nowuiKit.initSliders();
-                                        });
+                                    $(document).ready(function () {
+                                        // the body of this function is in js/now-ui-kit.js
+                                        nowuiKit.initSliders();
+                                    });
 
-                                        function scrollToDownload() {
+                                    function scrollToDownload() {
 
-                                            if ($('.section-download').length != 0) {
-                                                $("html, body").animate({
-                                                    scrollTop: $('.section-download').offset().top
-                                                }, 1000);
-                                            }
+                                        if ($('.section-download').length != 0) {
+                                            $("html, body").animate({
+                                                scrollTop: $('.section-download').offset().top
+                                            }, 1000);
                                         }
+                                    }
     </script>
 </html>

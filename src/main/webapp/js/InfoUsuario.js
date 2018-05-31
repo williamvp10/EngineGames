@@ -148,7 +148,6 @@ function Notificaciones() {
 }
 
 function BorrarNotificacion(id) {
-    alert("borrar" + id);
     var parametros = {
         "IdNotificacion": id
     };
@@ -158,7 +157,7 @@ function BorrarNotificacion(id) {
         type: "post"
     }).done(function (response) {
         Notificaciones();
-        ohSnap(response, {color: 'red'});
+        redd(response);
     });
 }
 
@@ -175,7 +174,7 @@ function AceptarSolicitud(id) {
     }).done(function (response) {
         Notificaciones();
         amigos();
-        
+        defaultt("realizado ");
     });
 }
 
