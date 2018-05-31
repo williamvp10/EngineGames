@@ -43,6 +43,8 @@ public class ServletSolicitudAmistad extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //añadir solicitud amistad 
+        not = new Notificaciones();
+        amigos = new Amigos();
         String r = "";
         String id = request.getParameter("IdUsuario").trim();
         HttpSession respuesta = request.getSession();

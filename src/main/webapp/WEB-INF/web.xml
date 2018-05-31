@@ -160,7 +160,14 @@
         <url-pattern>/ServletCalificacionComentario</url-pattern>
     </servlet-mapping>
     
-    
+    <servlet>
+        <servlet-name>ServletGeneros</servlet-name>
+        <servlet-class>Controlador.ServletGeneros</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletGeneros</servlet-name>
+        <url-pattern>/ServletGeneros</url-pattern>
+    </servlet-mapping>
     
     <session-config>
         
