@@ -84,10 +84,10 @@ public class ServletSesion extends HttpServlet {
                         respuesta.setAttribute("sessionEmail", email);
                         r = "ingresar";
                     } else {
-                        r = "usuario o contraseña erroneo";
+                        r = "usuario o contrasena erroneo";
                     }
                 } else {
-                    r = "contraseña no valida";
+                    r = "contrasena no valida";
                 }
             } else {
                 r = "direccion de correo incorrecta";

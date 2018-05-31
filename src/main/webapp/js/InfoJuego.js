@@ -44,8 +44,8 @@ function CalificacionJ(id) {
 
     }).done(function (response) {
         var juegos = response;
-      
-        document.getElementById('promedio').innerHTML ="Calificación: " +juegos[0];
+        alert(""+response);
+        document.getElementById('promedio').innerHTML ="Calificacion: " +juegos[0];
 
     });
 
