@@ -1,8 +1,8 @@
 var ws;
 function connect() {
     var username = document.getElementById("nickname").value;
-    ws = new WebSocket("@routes.Application.chat("+username+").webSocketURL(request)");
-    //ws = new WebSocket("ws://" + document.location.host + "//chat/" + username);
+    
+    ws = new WebSocket("ws://" + document.location.host + "/EngineGames/chat/" + username);
     ws.onmessage = function (event) {
         var str1 = "nuevo amigo";
         var message = JSON.parse(event.data);
