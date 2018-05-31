@@ -83,19 +83,17 @@ public class ServletSesion extends HttpServlet {
                         respuesta.setAttribute("sessionNombre", u.getNombre());
                         respuesta.setAttribute("sessionEmail", email);
                         r = "ingresar";
-                        res.add(r);
-                        res.add(u.getNickname());
                     } else {
-                        r = "usuario o contraseÃ±a erroneo";
+                        r = "usuario o contraseña erroneo";
                     }
                 } else {
-                    r = "contraseÃ±a no valida";
+                    r = "contraseña no valida";
                 }
             } else {
                 r = "direccion de correo incorrecta";
             }
         }
-
+        res.add(r);
         String json = new Gson().toJson(res);
         response.setContentType("application/json");
         response.getWriter().write(json);
