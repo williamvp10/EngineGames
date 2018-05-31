@@ -40,7 +40,9 @@ public class ServletDatosAdicionalesUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        if(this.usu ==null){
+            this.usu = new Usuarios();
+        }
         String r = "";
         HttpSession respuesta = request.getSession();
         String email = (String) respuesta.getAttribute("sessionEmail");

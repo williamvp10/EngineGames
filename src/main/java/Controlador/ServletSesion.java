@@ -37,6 +37,9 @@ public class ServletSesion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(this.usu ==null){
+           this.usu = new Usuarios(); 
+        }
         //retorna la informacion del usuario en sesion 
         String r = "";
         HttpSession session = request.getSession();

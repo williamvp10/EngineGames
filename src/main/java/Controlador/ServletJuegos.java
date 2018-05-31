@@ -37,6 +37,13 @@ public class ServletJuegos extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //retornar juegos 
+        if (jf == null) {
+            jf = new Juegofavdb();
+        }
+        if (juegos == null) {
+            juegos = new Juegos();
+        }
+
         ArrayList<Juego> j = (ArrayList<Juego>) this.juegos.findAll();
         String json = new Gson().toJson(j);
         response.setContentType("application/json");

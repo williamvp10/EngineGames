@@ -33,10 +33,12 @@ public class ServletInfoJuego extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        if (juegos == null) {
+            juegos = new Juegos();
+        }
         //retornar info de un juego en especifico 
         String id = request.getParameter("IdJuego").trim();
-        
+
         ArrayList<Juego> j = (ArrayList<Juego>) this.juegos.findbyId(id);
         String json = new Gson().toJson(j);
         response.setContentType("application/json");

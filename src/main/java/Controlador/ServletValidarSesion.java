@@ -35,6 +35,9 @@ public class ServletValidarSesion extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //retorna info de usuario en sesion 
+        if(usu==null){
+            usu= new Usuarios();
+        }
         String r = "null";
         HttpSession session = request.getSession();
         String email = (String) session.getAttribute("sessionEmail");

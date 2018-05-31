@@ -35,6 +35,9 @@ public class ServletNotificacion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(not ==null){
+          not = new Notificaciones();  
+        }
         //retornar las notificaciones de un usuario
         HttpSession respuesta = request.getSession();
         String email = (String) respuesta.getAttribute("sessionEmail");
@@ -50,6 +53,9 @@ public class ServletNotificacion extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(not ==null){
+          not = new Notificaciones();  
+        }
         // borrar una notificacion
         String id = request.getParameter("IdNotificacion").trim();
         Notificacion nn = new Notificacion(id, null, null, null, null, null);

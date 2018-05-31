@@ -23,9 +23,9 @@ import javax.servlet.http.HttpSession;
  *
  * @author william
  */
-
 @WebServlet(name = "ServletRecomendacionJuegos", urlPatterns = {"/ServletRecomendacionJuegos"})
-public class ServletRecomendacionJuegos extends HttpServlet{
+public class ServletRecomendacionJuegos extends HttpServlet {
+
     private Usuarios usuarios;
     private Juegos juegos;
 
@@ -37,27 +37,33 @@ public class ServletRecomendacionJuegos extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if (usuarios == null) {
+            usuarios = new Usuarios();
+        }
+        if (juegos == null) {
+            juegos = new Juegos();
+        }
         //retornar info de un juego en especifico 
         HttpSession session = request.getSession();
         String id = (String) session.getAttribute("sessionId");
         Usuario u = this.usuarios.FindById(id);
-        System.out.println("nom "+u.getNickname());
-        ArrayList<Juego> juegos= (ArrayList<Juego>) this.juegos.findAll();
+        System.out.println("nom " + u.getNickname());
+        ArrayList<Juego> juegos = (ArrayList<Juego>) this.juegos.findAll();
         ArrayList<Juego> j = new ArrayList<Juego>();
-        if(u.getGenerosJuego()!=null){
-        for (int i = 0; i < juegos.size(); i++) {
-            String[] arreglo = u.getGenerosJuego().split(",");
-            for (int k = 0; k < arreglo.length; k++) {
-                if(juegos.get(i).getGenero().trim().equals(arreglo[k])){
-                 j.add(juegos.get(i));
-             }
+        if (u.getGenerosJuego() != null) {
+            for (int i = 0; i < juegos.size(); i++) {
+                String[] arreglo = u.getGenerosJuego().split(",");
+                for (int k = 0; k < arreglo.length; k++) {
+                    if (juegos.get(i).getGenero().trim().equals(arreglo[k])) {
+                        j.add(juegos.get(i));
+                    }
+                }
             }
         }
-        }
-        if(j.size()==0){
-           for (int i = 0; i < juegos.size(); i++) {
-                 j.add(juegos.get(i));
-        } 
+        if (j.size() == 0) {
+            for (int i = 0; i < juegos.size(); i++) {
+                j.add(juegos.get(i));
+            }
         }
         //j.add(this.usuarios.FindById(id));
         String json = new Gson().toJson(j);
@@ -68,6 +74,6 @@ public class ServletRecomendacionJuegos extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 }

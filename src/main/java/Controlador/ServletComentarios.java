@@ -34,6 +34,9 @@ public class ServletComentarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(this.comentarios==null){
+             this.comentarios = new Comentarios();
+        }
         //retornar por juego
         String idjuego = request.getParameter("IdJuego").trim();
         ArrayList<Comentario> c = (ArrayList<Comentario>) comentarios.findbyIdJuego(idjuego);
@@ -47,6 +50,9 @@ public class ServletComentarios extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String r = "";
+        if(this.comentarios==null){
+             this.comentarios = new Comentarios();
+        }
         //añadir comentario de un juego 
         HttpSession respuesta = request.getSession();
         String idUsuario = (String) respuesta.getAttribute("sessionId");

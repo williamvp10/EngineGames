@@ -39,6 +39,12 @@ public class ServletJuegosUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if (jf == null) {
+            jf = new Juegofavdb();
+        }
+        if (juegos == null) {
+            juegos = new Juegos();
+        }
         //retornar juegos del usuario
         String id = request.getParameter("IdUsuario").trim();
         ArrayList<JuegoFav> juegosfav = (ArrayList<JuegoFav>) jf.findbyidUsuario(id);//buscar los juegos fav por usuario
@@ -55,8 +61,13 @@ public class ServletJuegosUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String r="";
+        if (jf == null) {
+            jf = new Juegofavdb();
+        }
+        if (juegos == null) {
+            juegos = new Juegos();
+        }
+        String r = "";
         //añadir juegos favorito
         String id = request.getParameter("Idjuego").trim();
         HttpSession respuesta = request.getSession();
