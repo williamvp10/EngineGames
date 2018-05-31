@@ -34,7 +34,9 @@ public class ServletCalificacionComentario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           this.ccomentarios = new CalificacionComentarios();      
+        if(this.ccomentarios==null){
+           this.ccomentarios = new CalificacionComentarios();
+        }
         //retornar por juego
         String id = request.getParameter("IdComentario").trim();
         ArrayList<String> c = new ArrayList<String>();

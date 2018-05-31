@@ -40,13 +40,17 @@ public class ServletCalificacionJuego extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.cjuegos = new CalificacionJuegos();
-        this.juegos = new Juegos();
+        if (this.cjuegos == null) {
+            this.cjuegos = new CalificacionJuegos();
+        }
+        if (this.juegos == null) {
+            this.juegos = new Juegos();
+        }
         //retornar por juego
         String id = request.getParameter("IdJuego").trim();
         ArrayList<String> c = new ArrayList<String>();
-        double num=this.cjuegos.Likes(id);
-        c.add(""+num);
+        double num = this.cjuegos.Likes(id);
+        c.add("" + num);
 
         String json = new Gson().toJson(c);
         response.setContentType("application/json");
@@ -62,7 +66,7 @@ public class ServletCalificacionJuego extends HttpServlet {
         String r = "";
         //añadir Calificacion de un juego
         String nickname = request.getParameter("Nickname").trim();
-        String id =request.getParameter("IdJuego").trim();
+        String id = request.getParameter("IdJuego").trim();
         int cal = Integer.parseInt(request.getParameter("Calificacion").trim());
         CalificacionJuego c = new CalificacionJuego(nickname, id, cal);
 
