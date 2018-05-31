@@ -2,7 +2,7 @@ var ws;
 function connect() {
     var username = document.getElementById("nickname").value;
     
-    ws = new WebSocket("ws://"+ document.location.host + "/myApp/chat/" + username);
+    ws = new WebSocket("ws://"+ document.location.host + "/chat/" + username);
     ws.onmessage = function (event) {
         var str1 = "nuevo amigo";
         var message = JSON.parse(event.data);
