@@ -167,8 +167,7 @@ public class Tx<T> {
         }
         return res;
     }
-    
-    
+
     // p tiene los valores a actualizar 
     // p2 tiene el valor a buscar 
     public Boolean update(T p, T p2) {
@@ -180,22 +179,33 @@ public class Tx<T> {
             for (int i = 0; i < f.length; i++) {
                 String methodName = "get" + f[i].getName();
                 Method getNameMethod = p.getClass().getMethod(methodName);
+                int nul = 0;
                 try {
                     String name = (String) getNameMethod.invoke(p);
-                    query += f[i].getName() + " = '" + name + "'";
+                    if (name != null && name.length()>0) {
+                        query += f[i].getName() + " = '" + name + "'";
+                        nul = 1;
+                    }
                 } catch (Exception e) {
                     try {
                         int name = (int) getNameMethod.invoke(p);
-                        query += f[i].getName() + " = '" + name + "'";
+                        if (name != -1) {
+                            query += f[i].getName() + " = '" + name + "'";
+                            nul = 1;
+                        }
                     } catch (Exception ex) {
                         Date name = (Date) getNameMethod.invoke(p);
                         query += f[i].getName() + " = '" + name + "'";
+                        nul=1;
                     }
                 }
 
-                if (i != (f.length - 1)) {
+                if (i != (f.length - 1) && nul == 1) {
                     query += ",";
                 }
+            }
+            if(query.substring(query.length()-1).equals(",")){
+                query=query.substring(0, query.length()-1);
             }
             query += " where ";
             int j = 0;
@@ -205,10 +215,12 @@ public class Tx<T> {
                 if (getNameMethod.invoke(p2) != null) {
                     try {
                         String name = (String) getNameMethod.invoke(p2);
-                        if (j != 0) {
-                            query += " and " + f[i].getName() + " = '" + name + "'";
-                        } else {
-                            query += f[i].getName() + " = '" + name + "'";
+                        if (name != null) {
+                            if (j != 0) {
+                                query += " and " + f[i].getName() + " = '" + name + "'";
+                            } else {
+                                query += f[i].getName() + " = '" + name + "'";
+                            }
                         }
                     } catch (Exception e) {
                         try {
@@ -222,10 +234,12 @@ public class Tx<T> {
                             }
                         } catch (Exception ex) {
                             Date name = (Date) getNameMethod.invoke(p2);
-                            if (j != 0) {
-                                query += " and " + f[i].getName() + " = '" + name + "'";
-                            } else {
-                                query += f[i].getName() + " = '" + name + "'";
+                            if (name != null) {
+                                if (j != 0) {
+                                    query += " and " + f[i].getName() + " = '" + name + "'";
+                                } else {
+                                    query += f[i].getName() + " = '" + name + "'";
+                                }
                             }
                         }
                     }
@@ -233,6 +247,7 @@ public class Tx<T> {
                 }
             }
             query += ";";
+            System.out.println(query);
         } catch (IllegalArgumentException ex) {
             Logger.getLogger(Tx.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {

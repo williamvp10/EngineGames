@@ -44,7 +44,8 @@ public class ServletDatosAdicionalesUsuario extends HttpServlet {
         String r = "";
         HttpSession respuesta = request.getSession();
         String email = (String) respuesta.getAttribute("sessionEmail");
-        Date FechaNacimiento = Date.valueOf(request.getParameter("FechaNacimiento"));
+        String[] fecha = request.getParameter("FechaNacimiento").split("/");
+        Date FechaNacimiento=null;
         String ExperienciaVideojuegos = request.getParameter("ExperienciaVideojuegos");
         String HorasPromedioJuego = request.getParameter("HorasPromedioJuego");
         String PlataformasVideojuegos = request.getParameter("PlataformasVideojuegos");
@@ -53,7 +54,15 @@ public class ServletDatosAdicionalesUsuario extends HttpServlet {
         String HorarioJuego = request.getParameter("HorarioJuego");
         String GenerosJuego = request.getParameter("GenerosJuego");
         Usuario u = this.usu.buscar2(email);
+        try{
+        int year = Integer.parseInt(fecha[2])-1900;
+        int month = Integer.parseInt(fecha[1]);
+        int day = Integer.parseInt(fecha[0]);
+        FechaNacimiento = new Date(year,month,day);
         u.setFechaNacimiento(FechaNacimiento);
+        }catch(Exception ex){
+            
+        }
         u.setExperienciaVideojuegos(ExperienciaVideojuegos);
         u.setHorasPromedioJuego(HorasPromedioJuego);
         u.setPlataformasVideojuegos(PlataformasVideojuegos);

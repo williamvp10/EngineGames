@@ -44,10 +44,15 @@ public class ServletRecomendacionJuegos extends HttpServlet{
         System.out.println("nom "+u.getNickname());
         ArrayList<Juego> juegos= (ArrayList<Juego>) this.juegos.findAll();
         ArrayList<Juego> j = new ArrayList<Juego>();
+        if(u.getGenerosJuego()!=null){
         for (int i = 0; i < juegos.size(); i++) {
-             if(u.getGenerosJuego()!=null && juegos.get(i).getGenero().trim().equals(u.getGenerosJuego().trim())){
+            String[] arreglo = u.getGenerosJuego().split(",");
+            for (int k = 0; k < arreglo.length; k++) {
+                if(juegos.get(i).getGenero().trim().equals(arreglo[k])){
                  j.add(juegos.get(i));
              }
+            }
+        }
         }
         if(j.size()==0){
            for (int i = 0; i < juegos.size(); i++) {

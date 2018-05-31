@@ -17,7 +17,7 @@
         <link rel="apple-touch-icon" sizes="76x76" href="./img/apple-icon.png">
         <link rel="icon" type="image/png" href="./img/favicon.png">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title> Engine Games </title>
+        <title>Engine Games</title>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -28,6 +28,8 @@
         <link href="css/bootstrap.min_1.css" rel="stylesheet" />
         <link href="css/now-ui-kit_1.css" rel="stylesheet" />
         <link href="css/chats.css" rel="stylesheet" />
+
+        <link href="css/tags.css" rel="stylesheet" />
         <!-- Canonical SEO -->
         <link rel="canonical" href="https://www.creative-tim.com/product/now-ui-kit" />
         <!--  Social tags      -->
@@ -52,7 +54,7 @@
                 response.sendRedirect("index.jsp");
             }%>         
 
-        
+
         <div class="sidebar" data-color="orange">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
@@ -108,7 +110,7 @@
 
                 <div class="navbar-translate">
                     <a class="navbar-brand" href="#" rel="tooltip" title="Home" data-placement="bottom" onclick="inicio()">
-                       Engine Games
+                        Engine Games
                     </a>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" data-nav-image="./assets/img/blurred-image-1.jpg">
@@ -497,32 +499,51 @@
                                                         <input type="text" class="form-control" placeholder="Company" id="Paispr" value="Mike">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 pl-1">
+
+                                                <div class="col-md-4 pl-1">
                                                     <div class="form-group">
                                                         <label>Fecha de nacimiento</label>
-                                                        <input type="text" class="form-control" placeholder="Last Name" id="Fechapr" value="Andrew">
+                                                        <div class="datepicker-container">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control date-picker" value="31/05/2018" data-datepicker-color="primary" id="FechaNacimientopr">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
+                                                <div class="col-md-6 pl-1">
+                                                    <div class ="tagss" >
                                                         <label>Generos que juego</label>
-                                                        <input type="text" class="form-control" placeholder="Home Address" id="Generospr" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                                        <ul class="tags" id="Generos">
+                                                            <li class="tag"><a>Tipo 1</a></li>
+                                                            <li class="tag"><a>Tipo 2</a></li>
+                                                        </ul>
                                                     </div>
                                                 </div>
+
+                                                <div class="col-md-6  pl-1">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Ingrese el nombre del género que juega" id="addgenero">
+                                                        <button class="bg_none pull-right"><i class="now-ui-icons ui-1_check" onclick="addGeneros()"></i> </button>
+
+                                                    </div>
+
+                                                </div>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-md-4 pr-1">
                                                     <div class="form-group">
                                                         <label>Horas promedio que juego</label>
-                                                        <input type="text" class="form-control" placeholder="City" id="Horaspr" value="Mike">
+                                                        <input type="text" class="form-control" placeholder="City" id="Horaspr" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 px-1">
                                                     <div class="form-group">
                                                         <label>Dias que juego</label>
-                                                        <input type="text" class="form-control" placeholder="Country" id="Diaspr" value="Andrew">
+                                                        <input type="text" class="form-control" placeholder="Country" id="Diaspr">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 pl-1">
@@ -714,7 +735,7 @@
         </div>
 
     </div> -->
-    <div id="ohsnap"></div>
+            <div id="ohsnap"></div>
 
     </body>
     <!--   Core JS Files   -->
@@ -745,7 +766,7 @@
     <script src="js/SlideGames.js"></script>
     <script src="js/ohsnap.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
-    
+    <script src="js/Generos.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
                         $(document).ready(function () {
                             // the body of this function is in js/now-ui-kit.js

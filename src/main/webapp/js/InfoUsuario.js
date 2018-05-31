@@ -1,6 +1,5 @@
 $(document).ready(function () {
     inicio();
-    //validarInfoPrincipal();
 });
 
 function cerrarsesion() {
@@ -14,24 +13,26 @@ function cerrarsesion() {
 }
 ;
 
-//function validarInfoPrincipal() {
-//    $.ajax({
-//        url: "ServletValidarSesion",
-//        type: "GET"
-//
-//    }).done(function (response) {
-//        var str1 = "undefined";
-//        var ad = str1.localeCompare(response[0].PlataformasVideojuegos);
-//        var ad2 = str1.localeCompare(response[0].FechaNacimiento);
-//        if (ad === 0 || ad2 === 0) {
-//            ohSnap(" primero llena la encuesta para recibir sugerencias ", {color: 'blue'});
-//            document.getElementById('informacionAdicional').style.display = 'block';
-//        } else {
-//            Limpiar();
-//        }
-//    });
-//}
-//;
+function validarInfoPrincipal(id) {
+    var parametros = {
+        "IdUsuario": id
+    };
+    $.ajax({
+        data: parametros,
+        url: "ServletUsuario",
+        type: "GET"
+
+    }).done(function (response) {
+        var str1 = "undefined";
+        var ad = str1.localeCompare(response[0].ExperienciaVideojuegos);
+        var ad2 = str1.localeCompare(response[0].FechaNacimiento);
+        var ad3 = str1.localeCompare(response[0].Idiomas);
+        if (ad === 0 || ad2 === 0 || ad3===0) {
+            bluee(" primero Completa tu perfil");
+        } 
+    });
+}
+;
 
 function infou() {
 
@@ -49,7 +50,7 @@ function infou() {
             document.getElementById('nickname').value = response[0].Nickname;
             juegosFav(response[0].Nickname);
             amigos(response[0].Nickname);
-
+            validarInfoPrincipal(response[0].Nickname);
         }
         connect();
     });
@@ -195,6 +196,7 @@ function inicio() {
     Notificaciones();
     recomendacionJuegos();
     top10();
+    validarInfoPrincipal();
     document.getElementById('vtop10').style.display = 'block';
     document.getElementById('vrecomendacionesj').style.display = 'block';
 }
