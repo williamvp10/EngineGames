@@ -42,6 +42,9 @@ public class ServletCrearCuenta extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(this.usu==null){
+             this.usu = new Usuarios();
+        }
         //Crear Cuenta e iniciar sesion
         String r = "";
         HttpSession respuesta = request.getSession(true);

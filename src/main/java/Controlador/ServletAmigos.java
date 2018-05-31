@@ -31,6 +31,7 @@ public class ServletAmigos extends HttpServlet {
     private Usuarios usu;
 
     public ServletAmigos() {
+        super();
         amigos = new Amigos();
         usu = new Usuarios();
     }
@@ -38,6 +39,12 @@ public class ServletAmigos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(amigos==null){
+             amigos = new Amigos();
+        }
+        if( usu ==null){
+             usu = new Usuarios();
+        }
         //lista de amigos de una persona
         HttpSession respuesta = request.getSession();
         String email = (String) respuesta.getAttribute("sessionEmail");
@@ -60,6 +67,12 @@ public class ServletAmigos extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //añadir amigo
+        if(amigos==null){
+             amigos = new Amigos();
+        }
+        if( usu ==null){
+             usu = new Usuarios();
+        }
          String r = "";
         String id = request.getParameter("IdUsuario").trim();
         HttpSession respuesta = request.getSession();

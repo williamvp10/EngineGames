@@ -61,8 +61,12 @@ public class ServletCalificacionJuego extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.cjuegos = new CalificacionJuegos();
-        this.juegos = new Juegos();
+        if (this.cjuegos == null) {
+            this.cjuegos = new CalificacionJuegos();
+        }
+        if (this.juegos == null) {
+            this.juegos = new Juegos();
+        }
         String r = "";
         //añadir Calificacion de un juego
         String nickname = request.getParameter("Nickname").trim();
